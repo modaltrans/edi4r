@@ -3,7 +3,7 @@ $:.unshift lib unless $:.include? lib
 
 Gem::Specification.new do |s|
   s.name        = "edi4r"
-  s.version     = Savon::Multipart::VERSION
+  s.version     = "0.1.2"
   s.authors     = ["Mark John Buenconsejo"]
   s.email       = ["hi@markjeee.com"]
   s.homepage    = "https://github.com/markjeee/edi4r"
