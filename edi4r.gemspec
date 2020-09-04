@@ -1,8 +1,6 @@
 lib = File.expand_path("../lib", __FILE__)
 $:.unshift lib unless $:.include? lib
 
-require "edi4r/version"
-
 Gem::Specification.new do |s|
   s.name        = "edi4r"
   s.version     = Savon::Multipart::VERSION
