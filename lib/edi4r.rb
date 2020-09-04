@@ -465,13 +465,20 @@ module EDI
 
     def Interchange.parse( hnd, auto_validate=true )
       case rc=Interchange.detect( hnd )
-      when 'BZ': Interchange.parse( EDI::Bzip2Reader.new( hnd ) ) # see "peek"
-      when 'GZ': Interchange.parse( Zlib::GzipReader.new( hnd ) )
-      when 'E':  EDI::E::Interchange.parse( hnd, auto_validate )
-      when 'I':  EDI::I::Interchange.parse( hnd, auto_validate )
-      when 'XE': EDI::E::Interchange.parse_xml( REXML::Document.new(hnd) )
-      when 'XI': EDI::I::Interchange.parse_xml( REXML::Document.new(hnd) )
-      else raise "#{rc}: Unsupported format key - don\'t know how to proceed!"
+      when "BZ"
+        Interchange.parse( EDI::Bzip2Reader.new( hnd ) ) # see "peek"
+      when "GZ"
+        Interchange.parse( Zlib::GzipReader.new( hnd ) )
+      when "E"
+        EDI::E::Interchange.parse( hnd, auto_validate )
+      when "I"
+        EDI::I::Interchange.parse( hnd, auto_validate )
+      when "XE"
+        EDI::E::Interchange.parse_xml( REXML::Document.new(hnd) )
+      when "XI"
+        EDI::I::Interchange.parse_xml( REXML::Document.new(hnd) )
+      else 
+        raise "#{rc}: Unsupported format key - don\'t know how to proceed!"
       end
     end
 

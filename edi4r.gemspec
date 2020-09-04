@@ -10,8 +10,6 @@ Gem::Specification.new do |s|
   s.summary     = "EDIFACT processes with Ruby"
   s.description = "Generate EDI files and parse EDI files"
 
-  s.rubyforge_project = s.name
-
   s.files = `git ls-files`.split("\n")
   s.require_path = "lib"
 end
